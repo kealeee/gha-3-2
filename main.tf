@@ -21,4 +21,12 @@ provider "aws" {
 
 resource "aws_s3_bucket" "workshop" {
   bucket_prefix = "kean-gha-3-2-"
+
+  #checkov:skip=CKV_AWS_18:Workshop bucket, access logging not required
+  #checkov:skip=CKV_AWS_21:Workshop bucket, versioning not required
+  #checkov:skip=CKV_AWS_144:Workshop bucket, cross-region replication not required
+  #checkov:skip=CKV_AWS_145:Workshop bucket, KMS encryption not required
+  #checkov:skip=CKV2_AWS_6:Workshop bucket, public access block not required
+  #checkov:skip=CKV2_AWS_61:Workshop bucket, lifecycle configuration not required
+  #checkov:skip=CKV2_AWS_62:Workshop bucket, event notifications not required
 }
